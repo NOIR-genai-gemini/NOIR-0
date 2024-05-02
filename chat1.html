@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Section</title>
+  <style>
+    /* CSS style chat section */
+    body{
+        align-items: center;
+        align-content: center;
+        background-color: #0c0141;
+    }
+    .chat-container {
+      width: 80vw;
+      height: 70vh;
+      border: 3px solid #0431f9;
+      overflow-y: scroll;
+      padding: 20px;
+      text-align: center;
+      background-color:rgb(4, 4, 54);
+      
+    }
+    .chat-container h2{
+        color: rgb(109, 224, 250);
+    }
+    .chat-message {
+      background-color: #06eef2;
+      padding: 20px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      font-size: 20px;
+      
+    }
+    .user-message {
+      text-align: right;
+      background-color: #0aade8;
+      color: #020c36;
+      font-size: 20px;
+      
+    }
+    .bot-message {
+      text-align: left;
+      background-color: #6915f1;
+      color: #0c0141;
+      font-size: 20px;
+    }
+    input{
+        width: 30vw;
+        padding: 20px;
+        margin: 5px;
+        border-radius: 10px;
+        background-color: #0d77ce;
+        color: rgb(170, 254, 254);
+        font-size: 20px;
+    }
+    
+    button{
+        
+        padding: 20px;
+        margin: 5px;
+        border-radius: 10px;
+        background-color: #0d77ce;
+        color: rgb(170, 254, 254);
+        font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container" id="chat-container">
+    <h2>Ask any thing to our AI assistent</h2>
+  </div>
+  <input type="text" id="user-input"  placeholder="Type your message..." >
+  <button onclick="sendMessage()">Send</button>
+  <button onclick="location.href='index.html'"> Back </button>
+
+  <input type="file" accept="image/*" id="image-upload" style="display:none">
+  <input type="file" accept="audio/*" id="audio-upload" style="display:none">
+  <input type="file" accept="video/*" id="video-upload" style="display:none">
+ 
+  <button onclick="document.getElementById('image-upload').click()">Upload Image</button>
+  <button onclick="document.getElementById('audio-upload').click()">Upload Audio</button>
+  <button onclick="document.getElementById('video-upload').click()">Upload Video</button>
+
+ 
+
+  <script>
+    function sendMessage() {
+      var userInput = document.getElementById("user-input").value;
+      var chatContainer = document.getElementById("chat-container");
+
+      //  new message 
+      var messageElement = document.createElement("div");
+      messageElement.classList.add("chat-message", "user-message");
+      messageElement.textContent = userInput;
+
+      //  message element to  chat container
+      chatContainer.appendChild(messageElement);
+
+      // Clear  input field
+      document.getElementById("user-input").value = "";
+
+      // bot response
+      setTimeout(function() {
+        var botResponse = "This is chintu, How can I help you.";
+        var botMessageElement = document.createElement("div");
+        botMessageElement.classList.add("chat-message", "bot-message");
+        botMessageElement.textContent = botResponse;
+        chatContainer.appendChild(botMessageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight; 
+      }, 1000);
+    }
+   
+  </script>
+</body>
+</html>
