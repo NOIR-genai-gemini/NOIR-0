@@ -1,0 +1,80 @@
+
+        .navbar {
+            background-color: #011049;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #0245c1;
+            color: rgb(130, 215, 252);
+        }
+
+
+
+        .header {
+            padding: 100px;
+            text-align: center;
+            background-color: rgb(0, 0, 38);
+            height: 60vh;
+            color: #92fbff;
+
+            font-size: 55px;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        .header h1 {
+            background: rgb(167, 242, 248);
+            background-image: linear-gradient(90deg, rgb(113, 217, 249) 0%, rgb(8, 55, 242) 50%, rgb(92, 200, 224) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .animated-words {
+            animation: animate 3s infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+
+        .content {
+            padding: 100px;
+            text-align: center;
+            background: rgb(61, 219, 243);
+            background-image: linear-gradient(90deg, rgb(1, 12, 58) 0%, rgb(4, 41, 253) 50%, rgb(1, 7, 42) 100%);
+            height: 60vh;
+        }
+        .content p{
+            font-size: 40px;
+            color: rgb(195, 229, 250);
+            background: rgb(167, 242, 248);
+            background-image: linear-gradient(90deg, rgb(249, 250, 250) 0%, rgb(5, 191, 253) 50%, rgb(248, 250, 251) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+
+        }

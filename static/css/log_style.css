@@ -1,0 +1,70 @@
+.body{
+        
+       }
+       .top{
+        margin: 2px;
+        padding: 20px;
+        display: flex;
+        
+        /* background-color: rgb(0, 15, 81); */
+        background: rgb(61, 219, 243);
+            background-image: linear-gradient(90deg, rgb(8, 44, 205) 0%, rgb(14, 13, 14) 50%, rgb(7, 35, 196) 100%);
+       }
+       button{
+        background-color: rgb(2, 2, 56);
+        color: white;
+        font-size: 23px;
+        border-radius: 12px;
+        cursor: pointer;
+        padding: 5px;
+        margin: 5px;
+       }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left {
+            width: 20%;
+            height: 100vh;
+            padding: 20px;
+            background: rgb(61, 219, 243);
+            background-image: linear-gradient(90deg, rgb(73, 200, 235) 0%, rgb(3, 30, 182) 50%, rgb(1, 7, 42) 100%);
+            font-size: 35px;
+            color: white;
+        }
+
+        .middle {
+            width: 60%;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+            /* background-color: rgb(8, 2, 128); */
+            border: 3px solid rgb(115, 244, 254);
+            background: rgb(61, 219, 243);
+            background-image: linear-gradient(90deg, rgb(1, 1, 74) 0%, rgb(3, 22, 146) 50%, rgb(1, 2, 58) 100%);
+        }
+        .middle h1{
+            font-size: 70px;
+            margin: 11px;
+            padding: 12px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(200, 248, 248);
+        }
+        .middle video{
+            border: 6px solid rgb(2, 116, 173);
+            padding: 4px;
+            margin: 20px;
+            width: 55vw;
+            
+        }
+
+        .right {
+            width: 20%;
+            height: 100vh;
+            padding: 20px;
+            background: rgb(61, 219, 243);
+            background-image: linear-gradient(90deg, rgb(3, 3, 83) 0%, rgb(3, 30, 182) 50%, rgb(127, 204, 248) 100%);
+            font-size: 35px;
+            color: white;
+        }

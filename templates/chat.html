@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>chat with NOIR-0</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/cha_style.css')}}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/aboutfuture">About</a>
+        <a href="/testchat">Chat</a>
+    </div>
+  <div class="chat-container" id="chat-container">
+    <h2>Ask any thing to NOIR-0 AI assistent</h2>
+  </div>
+  <input type="text" id="user-input"  placeholder="Type your message..." >
+  
+  <button onclick="sendMessage()">Send</button>
+  <button onclick="location.href='index.html'"> Back </button>
+
+  <input type="file" accept="image/*" id="image-upload" style="display:none">
+  <input type="file" accept="audio/*" id="audio-upload" style="display:none">
+  <input type="file" accept="video/*" id="video-upload" style="display:none">
+ 
+  <button onclick="document.getElementById('image-upload').click()">Upload Image</button>
+  <button onclick="document.getElementById('audio-upload').click()">Upload Audio</button>
+  <button onclick="document.getElementById('video-upload').click()">Upload Video</button>
+
+ 
+
+  <script>
+
+function sendMessage() {
+  var userInput = document.getElementById("user-input").value;
+  var chatContainer = document.getElementById("chat-container");
+
+  // Create a new message element for the user's message
+  var messageElement = document.createElement("div");
+  messageElement.classList.add("chat-message", "user-message");
+  messageElement.textContent = userInput;
+  chatContainer.appendChild(messageElement);
+
+  // Clear input field
+  document.getElementById("user-input").value = "";
+
+  // Scroll to the bottom of the chat container
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+
+  // Send user input to Flask route
+  fetch("/process", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ message: userInput }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Create a new message element for the bot's response
+      var botMessageElement = document.createElement("div");
+      botMessageElement.classList.add("chat-message", "bot-message");
+      botMessageElement.textContent = data.message;
+      chatContainer.appendChild(botMessageElement);
+
+      // Scroll to the bottom of the chat container
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+    
+
+  </script>
+</body>
+</html>
