@@ -6,8 +6,11 @@ import os
 import google.generativeai as genai
 from IPython.display import display
 from IPython.display import Markdown
+from dotenv import load_dotenv
+from flask_cors import CORS
+load_dotenv()
 
-genai.configure(api_key="AIzaSyARwi1E_RBln1sgri4zT75ZuJvsGeEraVM")
+genai.configure(api_key=os.environ.get('GOOGLE_API_KEY'))
 
 # Set up the model
 generation_config = {
@@ -50,6 +53,7 @@ def to_markdown(text):
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def home():

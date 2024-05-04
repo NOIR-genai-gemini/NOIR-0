@@ -6,6 +6,7 @@
   <title>chat with NOIR-0</title>
   <link rel="stylesheet" href="{{url_for('static',filename='css/cha_style.css')}}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{url_for('static',filename='js/chat.js')}}"></script>
 </head>
 <body>
 
@@ -32,50 +33,6 @@
 
  
 
-  <script>
-
-function sendMessage() {
-  var userInput = document.getElementById("user-input").value;
-  var chatContainer = document.getElementById("chat-container");
-
-  // Create a new message element for the user's message
-  var messageElement = document.createElement("div");
-  messageElement.classList.add("chat-message", "user-message");
-  messageElement.textContent = userInput;
-  chatContainer.appendChild(messageElement);
-
-  // Clear input field
-  document.getElementById("user-input").value = "";
-
-  // Scroll to the bottom of the chat container
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-
-  // Send user input to Flask route
-  fetch("/process", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ message: userInput }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Create a new message element for the bot's response
-      var botMessageElement = document.createElement("div");
-      botMessageElement.classList.add("chat-message", "bot-message");
-      botMessageElement.textContent = data.message;
-      chatContainer.appendChild(botMessageElement);
-
-      // Scroll to the bottom of the chat container
-      chatContainer.scrollTop = chatContainer.scrollHeight;
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-
-    
-
-  </script>
+ 
 </body>
 </html>
