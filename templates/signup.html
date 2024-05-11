@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIR-0</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    </head>
+
+<body>
+
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/aboutfuture">About</a>
+        <a href="/testchat">Chat</a>
+        <a href="/login">Login</a>
+    </div>
+
+    <h1>Sign Up</h1>
+    <form method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <h2>Already a user <a href="/login">Login</a> here.</h2>
+
+</body>
+</html>

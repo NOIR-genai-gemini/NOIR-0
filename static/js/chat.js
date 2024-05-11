@@ -70,4 +70,37 @@ fetch("/process", {
   });
 }
 
+window.onload = function() {
+  fetch('/get_previous_messages')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(messages => {
+
+const chatContainer = document.getElementById('chat-container');
+
+messages.forEach((message, index) => {
+  console.log(message);
+  if (index % 2 === 0) {
+      // Create a div for user message (even index)
+      var messageElement = document.createElement("div");
+      messageElement.classList.add("chat-message", "user-message");
+      messageElement.textContent = message; // Assuming message is the user's message
+      chatContainer.appendChild(messageElement);
+  } else {
+      // Create a div for bot message (odd index)
+      var botMessageElement = document.createElement("div");
+      botMessageElement.classList.add("chat-message", "bot-message");
+      botMessageElement.innerHTML = markdownToHtml(message); // Assuming message is the bot's message
+      chatContainer.appendChild(botMessageElement);
+  }
+});
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });};
+
   

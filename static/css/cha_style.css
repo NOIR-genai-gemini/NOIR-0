@@ -24,9 +24,22 @@
         color: rgb(130, 215, 252);
     }
 
+    .chat{
+      display: flex;
+    }
 
     .chat-container {
-      width: 80vw;
+      width: 75vw;
+      height: 70vh;
+      border: 3px solid #0431f9;
+      overflow-y: scroll;
+      padding: 20px;
+      text-align: center;
+      background-color:rgb(4, 4, 54);
+      
+    }
+    .chat-history {
+      width: 25vw;
       height: 70vh;
       border: 3px solid #0431f9;
       overflow-y: scroll;
@@ -38,6 +51,9 @@
     .chat-container h2{
         color: rgb(109, 224, 250);
     }
+    .chat-history h2{
+      color: rgb(109, 224, 250);
+  }
     .chat-message {
       background-color: #06eef2;
       padding: 20px;
